@@ -1,67 +1,85 @@
-package bhhagya.java.ac.in;
+package in.ac.emloyee;
 
 public class Employee {
-
-    
-	private int iEmpID;
+	private int iEmpiD;
 	private String sEmpName;
-	private float fEmpBasicSalary;
-	private double fAllowance;
+	private float fEmpBasicsalary;
+	private float fAllowances;
+
 	
-	public Employee(int iEmpID, String sEmpName, float fBasicSalary)
-	 {
-		this.iEmpID = iEmpID;
-		this.sEmpName= sEmpName;
-		this.fEmpBasicSalary = fEmpBasicSalary;
-		//this.fAllowance = fAllowance;
-	}
-	public int getiEmpID() 
-	{
-		return iEmpID;
-	}
-	public String getsEmpName() 
-	{
-		return sEmpName;
-	}
+		
+		
 
-	public float getfEmpBasicSalary() 
-	{
-		return fEmpBasicSalary;
-	}
-
-	public void Allowance() 
-	{
-		fAllowance=fEmpBasicSalary*0.46;
-	}
-	public void calNetSalary(double fEmpBasicSalary)
-	{
-		if((fEmpBasicSalary>5000)&&(fEmpBasicSalary<10000))
+		
+		Employee(int iEmpiD,String sEmpName,float fEmpBasicsalary)
 		{
-			fEmpBasicSalary=fEmpBasicSalary*0.01;
-		}
+			this.iEmpiD=iEmpiD;
+			this.sEmpName=sEmpName;
+			this.fEmpBasicsalary=fEmpBasicsalary;
 			
-		else if((fEmpBasicSalary>10001)&&(fEmpBasicSalary<20000))
-		{
-			fEmpBasicSalary=fEmpBasicSalary*0.02;
+			
 		}
-		else if(fEmpBasicSalary>20000)
-		{
-			fEmpBasicSalary=fEmpBasicSalary*0.03;
-		}
-		
-		
-		
-	}
-	
-	void display(){
-		System.out.println("employee	id is:"+getiEmpID());
-		System.out.println("employee name is = "+getsEmpName());
-		System.out.println("employee salary without income tax deduction = "+getfEmpBasicSalary());
-		//System.out.println("employee salary after income tax deduction = "calNetSalary());
-		//System.out.println("allowance is = " Allowance());
-	}
 
+float calNetSalary()
+{
+	float incometax;
+	float Netsalary;
+	float gross_salary;
+	float Basicsalary;
+	
+	fAllowances=(46f/100f)*fEmpBasicsalary;
+	gross_salary=fAllowances+fEmpBasicsalary;
+	System.out.println("Allowance is"+fAllowances);
+	System.out.println("Allowance is"+gross_salary);
+	
+	if(gross_salary<5000)
+		incometax=0;
+	else if(gross_salary>50001 && gross_salary<10000)
+		incometax=(10f/100f)*gross_salary;
+	else if(gross_salary>10001 && gross_salary<20000)
+		incometax=(20f/100f)*gross_salary;
+	else 
+		incometax=(30f/100f)*gross_salary;
+	Netsalary=gross_salary-incometax;
+	return Netsalary;
 }
 
 
 
+
+		public int getiEmpiD() {
+			return iEmpiD;
+		}
+
+
+
+
+
+
+		public String getsEmpName() {
+			return sEmpName;
+		}
+
+
+
+
+
+
+		public double getfEmpBasicsalary() {
+			return fEmpBasicsalary;
+		}
+
+
+
+
+
+
+		public double getfAllowances() {
+			return fAllowances;
+		}
+
+		
+	
+}
+
+	
